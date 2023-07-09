@@ -1,8 +1,4 @@
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.SwingUtilities;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 public class Fenster {
 	public static void main(final String... args) {
