@@ -38,9 +38,7 @@ public class Fenster implements ActionListener{
 			}
 	public void actionPerformed(ActionEvent e){
 		if (e.getSource() == this.button){
-			panel2 = new JPanel();
 			f.getContentPane().removeAll();
-			f.add(panel2);
 			f.revalidate();
 			f.repaint();
 		}
