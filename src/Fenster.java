@@ -21,6 +21,9 @@ public class Fenster implements ActionListener{
         createPanel1();
         createPanel2();
         createPanel3();
+		createPanel4();
+
+
         showCurrentPanel();
         f.setVisible(true);
     }
@@ -65,10 +68,10 @@ public class Fenster implements ActionListener{
         JLabel backgroundLabel = Hintergrund();
         panel2.add(backgroundLabel);
 
-		JButton b1 = new JButton("Deutsch, Musik");
+		JButton b1 = new JButton("Latein, Musik");
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Deutsch, Musik")){
+                if (e.getActionCommand().equals("Latein, Musik")){
                     currentPanelIndex++;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -97,7 +100,7 @@ public class Fenster implements ActionListener{
         b3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Englisch, Biologie")){
-                    currentPanelIndex= currentPanelIndex+2;
+                    currentPanelIndex= currentPanelIndex+3;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -111,7 +114,7 @@ public class Fenster implements ActionListener{
         b4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Spanisch, Französisch")){
-                    currentPanelIndex= currentPanelIndex+2;
+                    currentPanelIndex= currentPanelIndex+4;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -129,14 +132,23 @@ public class Fenster implements ActionListener{
         panel2.add(b2);
         panels.add(panel2);
     }
-    public void createPanel3() {
+    
+	public void createPanel3() {
         JPanel panel3 = new JPanel();
         panel3.setLayout(null);
-        JButton b5= new JButton("Button 5");
+
+		label= new JLabel("<html><body>Deine Klassenlehrerin ist Frau Stegmann</body></html>");
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel3.add(label);
+        JLabel backgroundLabel = Hintergrund();
+        panel3.add(backgroundLabel);
+
+        JButton b5= new JButton("weiter");
         b5.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Button 5")){
-                    currentPanelIndex=currentPanelIndex+2;
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=currentPanelIndex+4;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -147,6 +159,42 @@ public class Fenster implements ActionListener{
         b5.setBounds(350, 300, 100, 30);
         panel3.add(b5);
         panels.add(panel3);
+    }
+	
+	public void createPanel4() {
+        JPanel panel4 = new JPanel();
+        panel4.setLayout(null);
+        JButton b5= new JButton("Klassenkamerad 1");
+        b5.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Klassenkamerad 1")){
+                    currentPanelIndex=currentPanelIndex+2;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b5.setBounds(350, 300, 150, 30);
+        panel4.add(b5);
+
+		JButton b6= new JButton("Klassenkamerad 2");
+        b6.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Klassenkamerad 2")){
+                    currentPanelIndex=currentPanelIndex+2;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b5.setBounds(350, 300, 150, 30);
+        panel4.add(b6);
+
+        panels.add(panel4);
     }
     private void showCurrentPanel(){
         f.getContentPane().removeAll();
