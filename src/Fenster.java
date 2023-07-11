@@ -1,213 +1,41 @@
 import javax.swing.*;
-
-
-
-
 import java.awt.*;
-
-
-
-
 import java.awt.event.*;
-
-
-
-
 import java.util.ArrayList;
-
-
-
-
 import java.util.List;
 
-
-
-
- 
-
-
-
-
 public class Fenster implements ActionListener{
-
-
-
-
     JFrame f;
-
-
-
-
     JLabel label;
-
-
-
-
     int currentPanelIndex;
-
-
-
-
     List<JPanel> panels;
 
 
 
-
-   
-
-
-
-
     public void Bild() {    
-
-
-
-
         f = new JFrame();
-
-
-
-
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
-
         f.setSize(800,600);
-
-
-
-
-               
-
-
-
-
         panels = new ArrayList<>();
-
-
-
-
         currentPanelIndex = 0;
-
-
-
-
         createPanel1();
-
-
-
-
         createPanel2();
-
-
-
-
         createPanel3();
-
-
-
-
- 
-
-
-
-
         showCurrentPanel();
-
-
-
-
- 
-
-
-
-
         f.setVisible(true);
-
-
-
-
     }
-
-
-
-
-   
-
-
-
-
     public void actionPerformed(ActionEvent e){
-
-
-
-
         if (e.getActionCommand().equals("weiter")){
-
-
-
-
             currentPanelIndex++;
-
-
-
-
             if(currentPanelIndex >= panels.size()){
-
-
-
-
                 currentPanelIndex = 0;
-
-
-
-
             }
-
-
-
-
             showCurrentPanel();
-
-
-
-
         }
-
-
-
-
     }
-
-
-
-
- 
-
-
-
-
     public void createPanel1(){
-
-
-
-
         JPanel panel1 =new JPanel();    
-
-
-
-
         panel1.setLayout(null);
-
-
-
-
- 
-
-
-
-
         label= new JLabel("<html><body>Liebe/r zukünftige/r Schillerschüler/in,<br><br>herzlich willkommen am Schiller-Gymnasium! <br>Wir freuen uns sehr, euch als neue Mitglieder unserer Schulgemeinschaft <br>begrüßen zu dürfen. Mit diesem Brief möchten wir euch einen herzlichen Empfang bereiten<br> und euch einen ersten Eindruck von unserem Gymnasium vermitteln.<br> Wir sind uns sicher, dass ihr euren ersten Schultag genießen werdet.<br> Wir wünschen euch viel Spaß mit neuen Freund/innen und viel Erfolg beim lernen.<br> Mit vielen lieben Grüßen,<br><br>Euer Schiller-Gymnasium </body></html>");
         label.setBounds(50, 50, 700, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -236,7 +64,8 @@ public class Fenster implements ActionListener{
         panel2.add(label);
         JLabel backgroundLabel = Hintergrund();
         panel2.add(backgroundLabel);
-        JButton b1 = new JButton("Button 1");
+
+		JButton b1 = new JButton("Deutsch, Musik");
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Button 1")){
@@ -248,8 +77,9 @@ public class Fenster implements ActionListener{
                 }
             }
         });
-        b1.setBounds(250, 400, 100, 30);
-        JButton b2 = new JButton("Button 2");
+        b1.setBounds(250, 400, 150, 30);
+
+        JButton b2 = new JButton("Mathe, Informatik");
         b2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Button 2")){
@@ -261,7 +91,40 @@ public class Fenster implements ActionListener{
                 }
             }
         });
-        b2.setBounds(400, 400, 100, 30);
+        b2.setBounds(400, 400, 150, 30);
+
+        JButton b3 = new JButton("Englisch, Biologie");
+        b3.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Button 2")){
+                    currentPanelIndex= currentPanelIndex+2;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b3.setBounds(250, 450, 150, 30);
+
+        JButton b4 = new JButton("Spanisch, Französisch");
+        b4.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Button 2")){
+                    currentPanelIndex= currentPanelIndex+2;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b4.setBounds(400, 450, 150, 30);
+        panel2.add(b1);
+        panel2.add(b2);
+        panel2.add(b3);
+        panel2.add(b4);
+
         panel2.add(b1);
         panel2.add(b2);
         panels.add(panel2);
