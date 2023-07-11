@@ -68,7 +68,7 @@ public class Fenster implements ActionListener{
 		JButton b1 = new JButton("Deutsch, Musik");
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Button 1")){
+                if (e.getActionCommand().equals("Deutsch, Musik")){
                     currentPanelIndex++;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -82,7 +82,7 @@ public class Fenster implements ActionListener{
         JButton b2 = new JButton("Mathe, Informatik");
         b2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Button 2")){
+                if (e.getActionCommand().equals("Mathe, Informatik")){
                     currentPanelIndex= currentPanelIndex+2;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -96,7 +96,7 @@ public class Fenster implements ActionListener{
         JButton b3 = new JButton("Englisch, Biologie");
         b3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Button 2")){
+                if (e.getActionCommand().equals("Englisch, Biologie")){
                     currentPanelIndex= currentPanelIndex+2;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -110,7 +110,7 @@ public class Fenster implements ActionListener{
         JButton b4 = new JButton("Spanisch, Französisch");
         b4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Button 2")){
+                if (e.getActionCommand().equals("Spanisch, Französisch")){
                     currentPanelIndex= currentPanelIndex+2;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
