@@ -25,8 +25,8 @@ public class Fenster implements ActionListener{
         createPanel5();
         createPanel6();
         createPanel7();
-        //createPanel8();
-        //createPanel9();
+        createPanel8();
+        createPanel9();
         //createPanel10();
 
 
@@ -74,7 +74,7 @@ public class Fenster implements ActionListener{
         b1.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Latein, Musik")){
-                    currentPanelIndex++;
+                    currentPanelIndex=2;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -88,7 +88,7 @@ public class Fenster implements ActionListener{
         b2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Deutsch, Informatik")){
-                    currentPanelIndex= currentPanelIndex+2;
+                    currentPanelIndex= 3;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -102,7 +102,7 @@ public class Fenster implements ActionListener{
         b3.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Englisch, Biologie")){
-                    currentPanelIndex= currentPanelIndex+3;
+                    currentPanelIndex= 4;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -116,7 +116,7 @@ public class Fenster implements ActionListener{
         b4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("Mathe, Sport")){
-                    currentPanelIndex= currentPanelIndex+4;
+                    currentPanelIndex=5;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -154,7 +154,7 @@ public class Fenster implements ActionListener{
         b5.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=6;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -186,7 +186,7 @@ public class Fenster implements ActionListener{
         b6.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=currentPanelIndex+10;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -216,7 +216,7 @@ public class Fenster implements ActionListener{
         b7.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=currentPanelIndex+10;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -247,7 +247,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=currentPanelIndex+10;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -262,8 +262,7 @@ public class Fenster implements ActionListener{
         backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
         panel6.add(backgroundLabel);
         panels.add(panel6);
-    }
-
+    }   
     public void createPanel7(){
         JPanel panel7 = new JPanel();
         panel7.setLayout(null);
@@ -280,7 +279,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=7;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -297,7 +296,7 @@ public class Fenster implements ActionListener{
         b9.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=8;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -314,7 +313,7 @@ public class Fenster implements ActionListener{
         b10.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("")){
-                    currentPanelIndex=currentPanelIndex+4;
+                    currentPanelIndex=8;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -332,6 +331,68 @@ public class Fenster implements ActionListener{
         panels.add(panel7);
     }
 
+    public void createPanel8() {
+        JPanel panel8 = new JPanel();
+        panel8.setLayout(null);
+
+		label= new JLabel("<html><body>Deine Antwort ist richtig</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel8.add(label);
+
+        JButton b8= new JButton("weiter");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=currentPanelIndex+4;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(350, 275, 100, 30);
+        panel8.add(b8);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel8.add(backgroundLabel);
+        panels.add(panel8);
+    }
+
+    public void createPanel9(){
+        JPanel panel9 = new JPanel();
+        panel9.setLayout(null);
+
+        label= new JLabel("<html><body>Deine Antwort ist leider falsch<br>Probiere es noch einmal</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel9.add(label);
+
+        JButton b= new JButton("nochmal");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("nochmal")){
+                    currentPanelIndex=currentPanelIndex+4;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel9.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel9.add(backgroundLabel);
+        panels.add(panel9);
+
+    }
 
     private void showCurrentPanel(){
         f.getContentPane().removeAll();
