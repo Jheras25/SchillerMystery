@@ -84,10 +84,10 @@ public class Fenster implements ActionListener{
         });
         b1.setBounds(250, 400, 150, 30);
 
-        JButton b2 = new JButton("Mathe, Informatik");
+        JButton b2 = new JButton("Deutsch, Informatik");
         b2.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Mathe, Informatik")){
+                if (e.getActionCommand().equals("Deutsch, Informatik")){
                     currentPanelIndex= currentPanelIndex+2;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -112,10 +112,10 @@ public class Fenster implements ActionListener{
         });
         b3.setBounds(250, 450, 150, 30);
 
-        JButton b4 = new JButton("Französisch, Sport");
+        JButton b4 = new JButton("Mathe, Sport");
         b4.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("Französisch, Sport")){
+                if (e.getActionCommand().equals("Mathe, Sport")){
                     currentPanelIndex= currentPanelIndex+4;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -175,11 +175,12 @@ public class Fenster implements ActionListener{
         JPanel panel4 = new JPanel();
         panel4.setLayout(null);
 
-		label= new JLabel("<html><body>Dein Klassenlehrer ist Herr Krehl</body></html>");
-        label.setBounds(50, 220, 700, 400);
+		label= new JLabel("<html><body>Dein Klassenlehrer ist Herr Czernohous</body></html>");
+        label.setForeground(Color.white);
+        label.setBounds(0, 220, 320, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         panel4.add(label);
-        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (1).png");
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (6).png");
 
         JButton b6= new JButton("weiter");
         b6.addActionListener(new ActionListener(){
@@ -193,7 +194,7 @@ public class Fenster implements ActionListener{
                 }
             }
         });
-        b6.setBounds(350, 450, 100, 30);
+        b6.setBounds(110, 450, 100, 30);
         panel4.add(b6);
         JLabel backgroundLabel = new JLabel(backgroundImage);
         backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
@@ -236,8 +237,9 @@ public class Fenster implements ActionListener{
         JPanel panel6 = new JPanel();
         panel6.setLayout(null);
 
-		label= new JLabel("<html><body>Dein Klassenlehrer ist Herr Wöltge</body></html>");
-        label.setBounds(50, 220, 700, 400);
+		label= new JLabel("<html><body>Dein Klassenlehrer ist Herr Steiger</body></html>");
+        label.setForeground(Color.white);
+        label.setBounds(0, 220, 320, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         panel6.add(label);
 
@@ -253,9 +255,9 @@ public class Fenster implements ActionListener{
                 }
             }
         });
-        b8.setBounds(350, 450, 100, 30);
+        b8.setBounds(110, 450, 100, 30);
         panel6.add(b8);
-        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (1).png");
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image.png");
         JLabel backgroundLabel = new JLabel(backgroundImage);
         backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
         panel6.add(backgroundLabel);
@@ -267,6 +269,7 @@ public class Fenster implements ActionListener{
         panel7.setLayout(null);
 
         label= new JLabel("<html><body>Du hast deine erste Unterrichtssstunde in der du Aufgaben machen wirst.<br><br>Erste Aufgabe: <br> Welches der Instrumente ist eine Violine?</body></html>");
+        label.setForeground(Color.white);
         label.setBounds(50, 50, 700, 250);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         panel7.add(label);
@@ -285,7 +288,7 @@ public class Fenster implements ActionListener{
                 }
             }
         });
-        b8.setBounds(175, 250, 100, 200);
+        b8.setBounds(200, 250, 100, 200);
         panel7.add(b8);
 
         JButton b9= new JButton("");
@@ -302,10 +305,27 @@ public class Fenster implements ActionListener{
                 }
             }
         });
-        b9.setBounds(300, 250, 100, 200);
+        b9.setBounds(350, 250, 100, 200);
         panel7.add(b9);
 
-        ImageIcon backgroundImage1 = new ImageIcon("MicrosoftTeams-image (1).png");
+        JButton b10= new JButton("");
+        ImageIcon icon3 = new ImageIcon("MicrosoftTeams-image (4).png");
+        b10.setIcon(icon3);
+        b10.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("")){
+                    currentPanelIndex=currentPanelIndex+4;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b10.setBounds(500, 250, 100, 200);
+        panel7.add(b10);
+
+        ImageIcon backgroundImage1 = new ImageIcon("MicrosoftTeams-image (2).png");
         JLabel backgroundLabel = new JLabel(backgroundImage1);
         backgroundLabel.setBounds(0, 0, backgroundImage1.getIconWidth(), backgroundImage1.getIconHeight());
         panel7.add(backgroundLabel);
