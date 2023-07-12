@@ -271,11 +271,12 @@ public class Fenster implements ActionListener{
         label.setHorizontalAlignment(SwingConstants.CENTER);
         panel7.add(label);
 
-        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (4).png");
-        JButton b8= new JButton(backgroundImage);
+        JButton b8= new JButton("");
+        ImageIcon icon1 = new ImageIcon("MicrosoftTeams-image (4).png");
+        b8.setIcon(icon1);
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals(b8)){
+                if (e.getActionCommand().equals("")){
                     currentPanelIndex=currentPanelIndex+4;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -286,6 +287,24 @@ public class Fenster implements ActionListener{
         });
         b8.setBounds(175, 250, 100, 200);
         panel7.add(b8);
+
+        JButton b9= new JButton("");
+        ImageIcon icon2 = new ImageIcon("MicrosoftTeams-image (4).png");
+        b9.setIcon(icon2);
+        b9.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("")){
+                    currentPanelIndex=currentPanelIndex+4;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b9.setBounds(300, 250, 100, 200);
+        panel7.add(b9);
+
         ImageIcon backgroundImage1 = new ImageIcon("MicrosoftTeams-image (1).png");
         JLabel backgroundLabel = new JLabel(backgroundImage1);
         backgroundLabel.setBounds(0, 0, backgroundImage1.getIconWidth(), backgroundImage1.getIconHeight());
