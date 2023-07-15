@@ -49,6 +49,7 @@ public class Fenster implements ActionListener{
         createPanel29();
         createPanel30();
         createPanel31();
+        createPanel32();
 
         
         showCurrentPanel();
@@ -268,7 +269,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=currentPanelIndex+10;
+                    currentPanelIndex=24;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -491,7 +492,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=29;
+                    currentPanelIndex=30;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -740,7 +741,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=29;
+                    currentPanelIndex=30;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -988,7 +989,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=29;
+                    currentPanelIndex=30;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1036,8 +1037,6 @@ public class Fenster implements ActionListener{
         panels.add(panel24);
     }
 
-
-
     public void createPanel25(){
         JPanel panel25 = new JPanel();
         panel25.setLayout(null);
@@ -1066,7 +1065,7 @@ public class Fenster implements ActionListener{
         JButton b9= new JButton("396");
         b9.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                if (e.getActionCommand().equals("398")){
+                if (e.getActionCommand().equals("396")){
                     currentPanelIndex=26;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
@@ -1223,24 +1222,24 @@ public class Fenster implements ActionListener{
         JLabel backgroundLabel = new JLabel(backgroundImage1);
         backgroundLabel.setBounds(0, 0, backgroundImage1.getIconWidth(), backgroundImage1.getIconHeight());
         panel28.add(backgroundLabel);
-        panels.add(panel25);
+        panels.add(panel28);
     }
 
-    public void createPanel26() {
-        JPanel panel28 = new JPanel();
-        panel28.setLayout(null);
+    public void createPanel29() {
+        JPanel panel29 = new JPanel();
+        panel29.setLayout(null);
 
 		label= new JLabel("<html><body>Deine Antwort ist richtig! </center></body></html>");
         label.setForeground(Color.WHITE);
         label.setBounds(50, 50, 700, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-        panel28.add(label);
+        panel29.add(label);
 
         JButton b8= new JButton("weiter");
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=29;
+                    currentPanelIndex=30;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1249,23 +1248,23 @@ public class Fenster implements ActionListener{
             }
         });
         b8.setBounds(350, 275, 100, 30);
-        panel28.add(b8);
+        panel29.add(b8);
         ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
         JLabel backgroundLabel = new JLabel(backgroundImage);
         backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
-        panel28.add(backgroundLabel);
-        panels.add(panel28);
+        panel29.add(backgroundLabel);
+        panels.add(panel29);
     }
 
-    public void createPanel29(){
-        JPanel panel29 = new JPanel();
-        panel29.setLayout(null);
+    public void createPanel30(){
+        JPanel panel30 = new JPanel();
+        panel30.setLayout(null);
 
         label= new JLabel("<html><body>Deine Antwort ist leider falsch<br>Probiere es noch einmal</body></html>");
         label.setForeground(Color.WHITE);
         label.setBounds(50, 50, 700, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-        panel29.add(label);
+        panel30.add(label);
 
         JButton b= new JButton("nochmal");
         b.addActionListener(new ActionListener() {
@@ -1280,29 +1279,29 @@ public class Fenster implements ActionListener{
             }
         });
         b.setBounds(350, 300, 100, 30);
-        panel29.add(b);
+        panel30.add(b);
         ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
         JLabel backgroundLabel = new JLabel(backgroundImage);
         backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
-        panel29.add(backgroundLabel);
-        panels.add(panel29);
+        panel30.add(backgroundLabel);
+        panels.add(panel30);
     }
 
-    public void createPanel30(){
-        JPanel panel30 = new JPanel();
-        panel30.setLayout(null);
+    public void createPanel31(){
+        JPanel panel31 = new JPanel();
+        panel31.setLayout(null);
 
-        label= new JLabel("<html><body> Gut gemacht, du hast die Aufgaben wirklich gut gelöst! <br> Du wirst hier auf dem Schiller-Gymnasium großartig machen. <br> <br> Wenn du auf Weiter klickst haben wir noch ein Zeugnis für dich.</body></html>");
+        label= new JLabel("<html><body> Gut gemacht, du hast die Aufgaben wirklich gut gelöst! <br> Du wirst hier auf dem Schiller-Gymnasium großartig machen. <br> <br> Klicke auf weiter um dein ersten Schultag abzuschließen.</body></html>");
         label.setForeground(Color.WHITE);
         label.setBounds(50, 50, 700, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-        panel29.add(label);
+        panel31.add(label);
 
         JButton b= new JButton("weiter");
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=30;
+                    currentPanelIndex=31;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1311,32 +1310,44 @@ public class Fenster implements ActionListener{
             }
         });
         b.setBounds(350, 300, 100, 30);
-        panel29.add(b);
-        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
-        JLabel backgroundLabel = new JLabel(backgroundImage);
-        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
-        panel29.add(backgroundLabel);
-        panels.add(panel29);
-    }
-
-    public void createPanel31(){
-        JPanel panel31 = new JPanel();
-        panel31.setLayout(null);
-//Kannst du hier dann noch dieses Zeugnis hinzufügen, dass Laura machen wollte wenn sie es gemacht?
-        label= new JLabel("<html><body> Hier ist dein Zeugnis</body></html>");
-        label.setForeground(Color.WHITE);
-        label.setBounds(50, 50, 700, 400);
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        panel31.add(label);
-        };
-
-        b.setBounds(350, 300, 100, 30);
         panel31.add(b);
         ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
         JLabel backgroundLabel = new JLabel(backgroundImage);
         backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
         panel31.add(backgroundLabel);
         panels.add(panel31);
+    }
+
+    public void createPanel32(){
+        JPanel panel32 = new JPanel();
+        panel32.setLayout(null);
+//Kannst du hier dann noch dieses Zeugnis hinzufügen, dass Laura machen wollte wenn sie es gemacht?
+        label= new JLabel("<html><body> Hier ist dein Zeugnis</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel32.add(label);
+
+        JButton b= new JButton("weiter");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=32;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel32.add(b);
+
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel32.add(backgroundLabel);
+        panels.add(panel32);
     }
 
     private void showCurrentPanel(){
