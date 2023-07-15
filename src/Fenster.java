@@ -39,8 +39,18 @@ public class Fenster implements ActionListener{
         createPanel19();
         createPanel20();
         createPanel21();
+        createPanel22();
+        createPanel23();
+        createPanel24();
+        createPanel25();
+        createPanel26();
+        createPanel27();
+        createPanel28();
+        createPanel29();
+        createPanel30();
+        createPanel31();
 
-
+        
         showCurrentPanel();
         f.setVisible(true);
     }
@@ -481,7 +491,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=12;
+                    currentPanelIndex=29;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -730,7 +740,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=19;
+                    currentPanelIndex=29;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -902,6 +912,432 @@ public class Fenster implements ActionListener{
         panels.add(panel21);
     }
 
+    public void createPanel22(){
+        JPanel panel22 = new JPanel();
+        panel22.setLayout(null);
+
+        label= new JLabel("<html><body>Zweite Aufgabe:<br> Von welchem Wildtier stammt der Hund ab?</body></html>");
+        label.setForeground(Color.white);
+        label.setBounds(50, 120, 700, 250);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel22.add(label);
+
+        JButton b8= new JButton("Bär");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Bär")){
+                    currentPanelIndex=23;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(200, 300, 100, 50);
+        panel22.add(b8);
+
+        JButton b9= new JButton("Wolf");
+        b9.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Wolf")){
+                    currentPanelIndex=22;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b9.setBounds(350, 300, 100, 50);
+        panel22.add(b9);
+
+        JButton b10= new JButton("Fuchs");
+        b10.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("Fuchs")){
+                    currentPanelIndex=23;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b10.setBounds(500, 300, 100, 50);
+        panel22.add(b10);
+
+        ImageIcon backgroundImage1 = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage1);
+        backgroundLabel.setBounds(0, 0, backgroundImage1.getIconWidth(), backgroundImage1.getIconHeight());
+        panel22.add(backgroundLabel);
+        panels.add(panel22);
+    }
+
+    public void createPanel23() {
+        JPanel panel23 = new JPanel();
+        panel23.setLayout(null);
+
+		label= new JLabel("<html><body>Deine Antwort ist richtig! </center></body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel23.add(label);
+
+        JButton b8= new JButton("weiter");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=29;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(350, 275, 100, 30);
+        panel23.add(b8);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel23.add(backgroundLabel);
+        panels.add(panel23);
+    }
+
+    public void createPanel24(){
+        JPanel panel24 = new JPanel();
+        panel24.setLayout(null);
+
+        label= new JLabel("<html><body>Deine Antwort ist leider falsch<br>Probiere es noch einmal</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel24.add(label);
+
+        JButton b= new JButton("nochmal");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("nochmal")){
+                    currentPanelIndex=21;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel24.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel24.add(backgroundLabel);
+        panels.add(panel24);
+    }
+
+
+
+    public void createPanel25(){
+        JPanel panel25 = new JPanel();
+        panel25.setLayout(null);
+
+        label= new JLabel("<html><body>Du hast deine erste Unterrichtssstunde in der du Aufgaben machen wirst.<br><br>Erste Aufgabe:<br> Wie viel ist 136 + 264?</body></html>");
+        label.setForeground(Color.white);
+        label.setBounds(50, 120, 700, 250);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel25.add(label);
+
+        JButton b8= new JButton("400");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("400")){
+                    currentPanelIndex=25;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(200, 300, 100, 50);
+        panel25.add(b8);
+
+        JButton b9= new JButton("396");
+        b9.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("398")){
+                    currentPanelIndex=26;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b9.setBounds(350, 300, 100, 50);
+        panel25.add(b9);
+
+        JButton b10= new JButton("300");
+        b10.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("300")){
+                    currentPanelIndex=26;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b10.setBounds(500, 300, 100, 50);
+        panel25.add(b10);
+
+        ImageIcon backgroundImage1 = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage1);
+        backgroundLabel.setBounds(0, 0, backgroundImage1.getIconWidth(), backgroundImage1.getIconHeight());
+        panel25.add(backgroundLabel);
+        panels.add(panel25);
+    }
+
+    public void createPanel26() {
+        JPanel panel26 = new JPanel();
+        panel26.setLayout(null);
+
+		label= new JLabel("<html><body>Deine Antwort ist richtig! </center></body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel26.add(label);
+
+        JButton b8= new JButton("weiter");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=27;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(350, 275, 100, 30);
+        panel26.add(b8);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel26.add(backgroundLabel);
+        panels.add(panel26);
+    }
+
+    public void createPanel27(){
+        JPanel panel27 = new JPanel();
+        panel27.setLayout(null);
+
+        label= new JLabel("<html><body>Deine Antwort ist leider falsch<br>Probiere es noch einmal</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel27.add(label);
+
+        JButton b= new JButton("nochmal");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("nochmal")){
+                    currentPanelIndex=24;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel27.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel27.add(backgroundLabel);
+        panels.add(panel27);
+    }
+
+
+
+    public void createPanel28(){
+        JPanel panel28 = new JPanel();
+        panel28.setLayout(null);
+
+        label= new JLabel("<html><body>Zweite Aufgabe:<br> Aus wie vielen Spielern besteht eine Fußballmannschaft?</body></html>");
+        label.setForeground(Color.white);
+        label.setBounds(50, 120, 700, 250);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel28.add(label);
+
+        JButton b8= new JButton("9");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("9")){
+                    currentPanelIndex=29;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(200, 300, 100, 50);
+        panel28.add(b8);
+
+        JButton b9= new JButton("13");
+        b9.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("13")){
+                    currentPanelIndex=29;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b9.setBounds(350, 300, 100, 50);
+        panel28.add(b9);
+
+        JButton b10= new JButton("11");
+        b10.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("11")){
+                    currentPanelIndex=28;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b10.setBounds(500, 300, 100, 50);
+        panel28.add(b10);
+
+        ImageIcon backgroundImage1 = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage1);
+        backgroundLabel.setBounds(0, 0, backgroundImage1.getIconWidth(), backgroundImage1.getIconHeight());
+        panel28.add(backgroundLabel);
+        panels.add(panel25);
+    }
+
+    public void createPanel26() {
+        JPanel panel28 = new JPanel();
+        panel28.setLayout(null);
+
+		label= new JLabel("<html><body>Deine Antwort ist richtig! </center></body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel28.add(label);
+
+        JButton b8= new JButton("weiter");
+        b8.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=29;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b8.setBounds(350, 275, 100, 30);
+        panel28.add(b8);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel28.add(backgroundLabel);
+        panels.add(panel28);
+    }
+
+    public void createPanel29(){
+        JPanel panel29 = new JPanel();
+        panel29.setLayout(null);
+
+        label= new JLabel("<html><body>Deine Antwort ist leider falsch<br>Probiere es noch einmal</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel29.add(label);
+
+        JButton b= new JButton("nochmal");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("nochmal")){
+                    currentPanelIndex=27;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel29.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel29.add(backgroundLabel);
+        panels.add(panel29);
+    }
+
+    public void createPanel30(){
+        JPanel panel30 = new JPanel();
+        panel30.setLayout(null);
+
+        label= new JLabel("<html><body> Gut gemacht, du hast die Aufgaben wirklich gut gelöst! <br> Du wirst hier auf dem Schiller-Gymnasium großartig machen. <br> <br> Wenn du auf Weiter klickst haben wir noch ein Zeugnis für dich.</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel29.add(label);
+
+        JButton b= new JButton("weiter");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=30;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel29.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel29.add(backgroundLabel);
+        panels.add(panel29);
+    }
+
+    public void createPanel31(){
+        JPanel panel31 = new JPanel();
+        panel31.setLayout(null);
+//Kannst du hier dann noch dieses Zeugnis hinzufügen, dass Laura machen wollte wenn sie es gemacht?
+        label= new JLabel("<html><body> Hier ist dein Zeugnis</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel31.add(label);
+        };
+
+        b.setBounds(350, 300, 100, 30);
+        panel31.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel31.add(backgroundLabel);
+        panels.add(panel31);
+    }
 
     private void showCurrentPanel(){
         f.getContentPane().removeAll();
