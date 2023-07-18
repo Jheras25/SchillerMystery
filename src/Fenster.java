@@ -4,14 +4,19 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Fenster implements ActionListener{
     JFrame f;
     JLabel label;
     int currentPanelIndex;
     List<JPanel> panels;
-    /*int row;
-    int col;*/
+    public JPanel gameboard;
+    public List<JButton> buttons;
+    public char[] board;
+    public Random random;
+    int row;
+    int col;
 
 
 
@@ -55,6 +60,11 @@ public class Fenster implements ActionListener{
         createPanel32();
         createPanel33();
         createPanel34();
+        createPanel35();
+        createPanel36();
+        createPanel37();
+        createPanel38();
+        createPanel39();
 
         
         showCurrentPanel();
@@ -988,7 +998,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=30;
+                    currentPanelIndex=32;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1238,7 +1248,7 @@ public class Fenster implements ActionListener{
         b8.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=30;
+                    currentPanelIndex=33;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1300,7 +1310,7 @@ public class Fenster implements ActionListener{
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=32;
+                    currentPanelIndex=34;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1330,7 +1340,67 @@ public class Fenster implements ActionListener{
         b.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e){
                 if (e.getActionCommand().equals("weiter")){
-                    currentPanelIndex=33;
+                    currentPanelIndex=35;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel31.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel31.add(backgroundLabel);
+        panels.add(panel31);
+    }
+    public void createPanel33(){
+        JPanel panel31 = new JPanel();
+        panel31.setLayout(null);
+
+        label= new JLabel("<html><body> Gut gemacht, du hast die Aufgaben wirklich gut gelöst! <br> Deine erste Unterrichtsstunde ist geschafft. <br>Klicke auf weiter um dein Zeugnis für den heutigen Tag zu erhalten</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel31.add(label);
+
+        JButton b= new JButton("weiter");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=36;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 300, 100, 30);
+        panel31.add(b);
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel31.add(backgroundLabel);
+        panels.add(panel31);
+    }
+    public void createPanel34(){
+        JPanel panel31 = new JPanel();
+        panel31.setLayout(null);
+
+        label= new JLabel("<html><body> Gut gemacht, du hast die Aufgaben wirklich gut gelöst! <br> Deine erste Unterrichtsstunde ist geschafft. <br>Klicke auf weiter um dein Zeugnis für den heutigen Tag zu erhalten</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel31.add(label);
+
+        JButton b= new JButton("weiter");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=37;
                     if(currentPanelIndex >= panels.size()){
                         currentPanelIndex = 0;
                     }
@@ -1347,17 +1417,44 @@ public class Fenster implements ActionListener{
         panels.add(panel31);
     }
 
-    /*public void createPanel32(){
-        JPanel panel32 = new JPanel();
-        panel32.setLayout(new BorderLayout());
+    public void createPanel39(){
+        gameboard = new JPanel(new GridLayout(3,3));
+        buttons = new ArrayList<>();
+        board = new char[9];
+        random = new Random();
+        for (int i=0;i<9;i++){
+            JButton b= new JButton();
+            b.setFont(new Font("Arial",Font.BOLD,50));
+            b.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e) {
+                    JButton button = (JButton) e.getSource();
+                    int index = buttons.indexOf(button);
+                    if (board[index] == '-') {
+                        makeMove(index, 'X');
+                        if (checkWin('X')) {
+                            showGameOverPanel("Du hast gewonnen!");
+                        } else if (isBoardFull()) {
+                            showGameOverPanel("Gleichstand!");
+                        } else {
+                            computerMove();
+                            if (checkWin('O')) {
+                                showGameOverPanel("Du hast verloren!");
+                            } else if (isBoardFull()) {
+                                showGameOverPanel("Gleichstand!");
+                            }
+                        }
+                    }
+                }
+                });
+            gameboard.add(b);
+            buttons.add(b);
+        }
+        panels.add(gameboard);
+        f.add(gameboard, BorderLayout.CENTER);
+        f.setVisible(true);
+    }
 
-        TicTacToe2 ticTacToe = new TicTacToe2();
-        panel32.add(ticTacToe.gameboard, BorderLayout.CENTER);
-        
-        panels.add(panel32);
-    }*/
-
-    public void createPanel33(){
+    public void createPanel35(){
         JPanel panel32 = new JPanel();
         panel32.setLayout(null);
         label= new JLabel("<html><body> Liebe/r zukünftige/r Schillerschüler/in<br>wir freuen uns, dir dein Zeugnis für den erfolgreich absolvierten Probetag am Schiller-Gymnasium auszustellen. Du hast an diesem Tag einen positiven Eindruck hinterlassen und gezeigt, dass du großes Potential hast. Wir sind stolz darauf, dich als Teil unserer Schulgemeinschaft zu haben.<br>Folgende Fächer und Bereiche wurden an diesem Probetag bewertet:<br><br>Fach: Latein<br>Bewertung: Sehr gut. Du hast ein ausgezeichnetes Verstädnis für die lateinische Sprache gezeigt. Deine Aufmerksamkeit im Unterricht und deine schriftlichen Arbeiten waren vorbildlich.<br>Fach: Musik<br>Bewertung: Sehr Gut.Du hast ein großes Interesse und Verständnis für musikalische Themen bewiesen. Deine Begeisterung und deine aktive Teilnahme im Unterricht waren beeindruckend.<br><br>Wir gratulieren dir zu deinen Leistungen an diesem Probetag und ermutigen dich, weiterhin engagiert und motiviert zu lernen. Mit deinem Ehrgeiz und deinem Talent wirst du sicherlich erfolgreich sein.<br>Wir wünschen dir weiterhin viel Erfolg und freuen uns darauf, dich bald als offiziellen Schüler am Schiller-Gymnasium begrüen zu düfen.<br>Mit freundlichen Grüßen,<br>Euer Schiller-Gymnasium</body></html>");
@@ -1387,10 +1484,70 @@ public class Fenster implements ActionListener{
         panel32.add(backgroundLabel);
         panels.add(panel32);
     }
-    public void createPanel34(){
+    public void createPanel36(){
         JPanel panel32 = new JPanel();
         panel32.setLayout(null);
-        label= new JLabel("<html><body> Liebe/r zukünftige/r Schillerschüler/in<br>wir freuen uns, dir dein Zeugnis für den erfolgreich absolvierten Probetag am Schiller-Gymnasium auszustellen. Du hast an diesem Tag einen positiven Eindruck hinterlassen und gezeigt, dass du großes Potential hast. Wir sind stolz darauf, dich als Teil unserer Schulgemeinschaft zu haben.<br>Folgende Fächer und Bereiche wurden an diesem Probetag bewertet:<br><br>Fach: Deutsch:<br>Bewertung: Sehr gut. Du hast ein ausgezeichnetes Verstädnis für die deutsche Sprache gezeigt. Deine Aufmerksamkeit im Unterricht und deine schriftlichen Arbeiten waren vorbildlich.<br>Fach: Informatik<br>Bewertung: Sehr Gut.Du hast ein großes Interesse und Verständnis für Informatik bewiesen. Deine Begeisterung und deine aktive Teilnahme im Unterricht waren beeindruckend.<br><br>Wir gratulieren dir zu deinen Leistungen an diesem Probetag und ermutigen dich, weiterhin engagiert und motiviert zu lernen. Mit deinem Ehrgeiz und deinem Talent wirst du sicherlich erfolgreich sein.<br>Wir wünschen dir weiterhin viel Erfolg und freuen uns darauf, dich bald als offiziellen Schüler am Schiller-Gymnasium begrüen zu düfen.<br>Mit freundlichen Grüßen,<br>Euer Schiller-Gymnasium</body></html>");
+        label= new JLabel("<html><body> Liebe/r zukünftige/r Schillerschüler/in<br>wir freuen uns, dir dein Zeugnis für den erfolgreich absolvierten Probetag am Schiller-Gymnasium auszustellen. Du hast an diesem Tag einen positiven Eindruck hinterlassen und gezeigt, dass du großes Potential hast. Wir sind stolz darauf, dich als Teil unserer Schulgemeinschaft zu haben.<br>Folgende Fächer und Bereiche wurden an diesem Probetag bewertet:<br><br>Fach: Deutsch:<br>Bewertung: Sehr gut. Du hast ein ausgezeichnetes Verstädnis für die deutsche Sprache gezeigt. Deine Aufmerksamkeit im Unterricht und deine schriftlichen Arbeiten waren vorbildlich.<br>Fach: Informatik<br>Bewertung: Sehr gut.Du hast ein großes Interesse und Verständnis für Informatik bewiesen. Deine Begeisterung und deine aktive Teilnahme im Unterricht waren beeindruckend.<br><br>Wir gratulieren dir zu deinen Leistungen an diesem Probetag und ermutigen dich, weiterhin engagiert und motiviert zu lernen. Mit deinem Ehrgeiz und deinem Talent wirst du sicherlich erfolgreich sein.<br>Wir wünschen dir weiterhin viel Erfolg und freuen uns darauf, dich bald als offiziellen Schüler am Schiller-Gymnasium begrüen zu düfen.<br>Mit freundlichen Grüßen,<br>Euer Schiller-Gymnasium</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel32.add(label);
+
+        JButton b= new JButton("weiter");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=40;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 400, 100, 30);
+        panel32.add(b);
+
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel32.add(backgroundLabel);
+        panels.add(panel32);
+    }
+    public void createPanel37(){
+        JPanel panel32 = new JPanel();
+        panel32.setLayout(null);
+        label= new JLabel("<html><body> Liebe/r zukünftige/r Schillerschüler/in<br>wir freuen uns, dir dein Zeugnis für den erfolgreich absolvierten Probetag am Schiller-Gymnasium auszustellen. Du hast an diesem Tag einen positiven Eindruck hinterlassen und gezeigt, dass du großes Potential hast. Wir sind stolz darauf, dich als Teil unserer Schulgemeinschaft zu haben.<br>Folgende Fächer und Bereiche wurden an diesem Probetag bewertet:<br><br>Fach: Englisch:<br>Bewertung: Sehr gut. Du hast ein ausgezeichnetes Verstädnis für die englische Sprache gezeigt. Deine Aufmerksamkeit im Unterricht und deine schriftlichen Arbeiten waren vorbildlich.<br>Fach: Biologie<br>Bewertung: Sehr gut.Du hast ein großes Interesse und Verständnis für biologische Themen bewiesen. Deine Begeisterung und deine aktive Teilnahme im Unterricht waren beeindruckend.<br><br>Wir gratulieren dir zu deinen Leistungen an diesem Probetag und ermutigen dich, weiterhin engagiert und motiviert zu lernen. Mit deinem Ehrgeiz und deinem Talent wirst du sicherlich erfolgreich sein.<br>Wir wünschen dir weiterhin viel Erfolg und freuen uns darauf, dich bald als offiziellen Schüler am Schiller-Gymnasium begrüen zu düfen.<br>Mit freundlichen Grüßen,<br>Euer Schiller-Gymnasium</body></html>");
+        label.setForeground(Color.WHITE);
+        label.setBounds(50, 50, 700, 400);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        panel32.add(label);
+
+        JButton b= new JButton("weiter");
+        b.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                if (e.getActionCommand().equals("weiter")){
+                    currentPanelIndex=40;
+                    if(currentPanelIndex >= panels.size()){
+                        currentPanelIndex = 0;
+                    }
+                    showCurrentPanel();
+                }
+            }
+        });
+        b.setBounds(350, 400, 100, 30);
+        panel32.add(b);
+
+        ImageIcon backgroundImage = new ImageIcon("MicrosoftTeams-image (2).png");
+        JLabel backgroundLabel = new JLabel(backgroundImage);
+        backgroundLabel.setBounds(0, 0, backgroundImage.getIconWidth(), backgroundImage.getIconHeight());
+        panel32.add(backgroundLabel);
+        panels.add(panel32);
+    }
+    public void createPanel38(){
+        JPanel panel32 = new JPanel();
+        panel32.setLayout(null);
+        label= new JLabel("<html><body> Liebe/r zukünftige/r Schillerschüler/in<br>wir freuen uns, dir dein Zeugnis für den erfolgreich absolvierten Probetag am Schiller-Gymnasium auszustellen. Du hast an diesem Tag einen positiven Eindruck hinterlassen und gezeigt, dass du großes Potential hast. Wir sind stolz darauf, dich als Teil unserer Schulgemeinschaft zu haben.<br>Folgende Fächer und Bereiche wurden an diesem Probetag bewertet:<br><br>Fach: Mathe:<br>Bewertung: Sehr gut. Du hast ein ausgezeichnetes Verstädnis für Mathematik gezeigt. Deine Aufmerksamkeit im Unterricht und deine schriftlichen Arbeiten waren vorbildlich.<br>Fach: Sport<br>Bewertung: Sehr gut.Du hast ein großes Interesse und Verständnis für sportlich Aktivitäten bewiesen. Deine Begeisterung und deine aktive Teilnahme im Unterricht waren beeindruckend.<br><br>Wir gratulieren dir zu deinen Leistungen an diesem Probetag und ermutigen dich, weiterhin engagiert und motiviert zu lernen. Mit deinem Ehrgeiz und deinem Talent wirst du sicherlich erfolgreich sein.<br>Wir wünschen dir weiterhin viel Erfolg und freuen uns darauf, dich bald als offiziellen Schüler am Schiller-Gymnasium begrüen zu düfen.<br>Mit freundlichen Grüßen,<br>Euer Schiller-Gymnasium</body></html>");
         label.setForeground(Color.WHITE);
         label.setBounds(50, 50, 700, 400);
         label.setHorizontalAlignment(SwingConstants.CENTER);
@@ -1423,6 +1580,77 @@ public class Fenster implements ActionListener{
         f.add(panels.get(currentPanelIndex));
         f.revalidate();
         f.repaint();
+    }
+    public void makeMove(int index, char player){
+        board[index] = player;
+        buttons.get(index).setText(String.valueOf(player));
+        buttons.get(index).setEnabled(false);
+    }
+    public void computerMove(){
+        List<Integer> availableMoves = new ArrayList<>();
+        for (int i = 0; i < 9;i++) {
+            if  (board[i] == '-'){
+                availableMoves.add(i);
+            }
+        }
+        if (!availableMoves.isEmpty()){
+            int randomIndex = random.nextInt(availableMoves.size());
+            int move = availableMoves.get(randomIndex);
+            makeMove(move, 'O');
+        }
+    }
+    public boolean checkWin(char player){
+        if ((board[0] == player && board[1] == player && board[2] == player) ||
+            (board[3] == player && board[4] == player && board[5] == player) ||
+            (board[6] == player && board[7] == player && board[8] == player) ||
+            (board[0] == player && board[3] == player && board[6] == player) ||
+            (board[1] == player && board[4] == player && board[7] == player) ||
+            (board[2] == player && board[5] == player && board[8] == player) ||
+            (board[0] == player && board[4] == player && board[8] == player) ||
+            (board[2] == player && board[4] == player && board[6] == player)) {
+                return true;
+            }
+        return false;
+    }
+    public boolean isBoardFull(){
+        for (int i = 0; i < 9; i++){
+            if (board[i] == '-'){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void showGameOverPanel(String message) {
+        JPanel gameOverPanel = new JPanel();
+        gameOverPanel.setLayout(new BorderLayout());
+
+        JLabel messageLabel = new JLabel(message);
+        messageLabel.setFont(new Font("Arial", Font.BOLD, 20));
+        messageLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        gameOverPanel.add(messageLabel, BorderLayout.CENTER);
+
+        JButton restartButton = new JButton("Restart");
+        restartButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                resetGame();
+            }
+        });
+        gameOverPanel.add(restartButton, BorderLayout.SOUTH);
+
+        ((RootPaneContainer) gameboard).setContentPane(gameOverPanel);
+        this.revalidate();
+    }
+    private void revalidate() {
+    }
+    public void resetGame() {
+        for (JButton b:buttons){
+            b.setEnabled(true);
+            b.setText("");
+        }
+        for (int i = 0; i < 9; i++){
+            board[i] = '-';
+        }
     }
     public static void main(String[] args){
         Fenster fenster = new Fenster();

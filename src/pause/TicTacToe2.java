@@ -1,11 +1,11 @@
-/*package pause;
+package pause;
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.util.List;
 
-public class TicTacToe2 extends JFrame implements ActionListener{
+public class TicTacToe2 {
     public JPanel gameboard;
     public List<JButton> buttons;
     public char[] board;
@@ -13,6 +13,10 @@ public class TicTacToe2 extends JFrame implements ActionListener{
     public JFrame f;
 
     public TicTacToe2(){
+        f = new JFrame();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setSize(800,600);
+
         gameboard = new JPanel(new GridLayout(3,3));
         buttons = new ArrayList<>();
         board = new char[9];
@@ -20,12 +24,32 @@ public class TicTacToe2 extends JFrame implements ActionListener{
         for (int i=0;i<9;i++){
             JButton b= new JButton();
             b.setFont(new Font("Arial",Font.BOLD,50));
-            b.addActionListener(this);
+            b.addActionListener(new ActionListener(){
+                public void actionPerformed(ActionEvent e) {
+                    JButton button = (JButton) e.getSource();
+                    int index = buttons.indexOf(button);
+                    if (board[index] == '-') {
+                        makeMove(index, 'X');
+                        if (checkWin('X')) {
+                            showGameOverPanel("Du hast gewonnen!");
+                        } else if (isBoardFull()) {
+                            showGameOverPanel("Gleichstand!");
+                        } else {
+                            computerMove();
+                            if (checkWin('O')) {
+                                showGameOverPanel("Du hast verloren!");
+                            } else if (isBoardFull()) {
+                                showGameOverPanel("Gleichstand!");
+                            }
+                        }
+                    }
+                }
+                });
             gameboard.add(b);
             buttons.add(b);
         }
-        add(gameboard, BorderLayout.CENTER);
-        setVisible(true);
+        f.add(gameboard, BorderLayout.CENTER);
+        f.setVisible(true);
     }
     public void makeMove(int index, char player){
         board[index] = player;
@@ -85,7 +109,7 @@ public class TicTacToe2 extends JFrame implements ActionListener{
         gameOverPanel.add(restartButton, BorderLayout.SOUTH);
 
         setContentPane(gameOverPanel);
-        revalidate();
+        this.revalidate();
     }
     public void resetGame() {
         for (JButton b:buttons){
@@ -97,29 +121,9 @@ public class TicTacToe2 extends JFrame implements ActionListener{
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        int index = buttons.indexOf(button);
-        if (board[index] == '-') {
-            makeMove(index, 'X');
-            if (checkWin('X')) {
-                showGameOverPanel("You won!");
-            } else if (isBoardFull()) {
-                showGameOverPanel("It's a tie!");
-            } else {
-                computerMove();
-                if (checkWin('O')) {
-                    showGameOverPanel("Computer won!");
-                } else if (isBoardFull()) {
-                    showGameOverPanel("It's a tie!");
-                }
-            }
-        }
-    }
     public static void main (String[] args){
         SwingUtilities.invokeLater(() -> {
             new TicTacToe2();
         });
     }
-}*/
+}
